@@ -1,0 +1,280 @@
+{
+  "groups": [],
+  "supportedstandards": [
+    "NEP-11",
+    "NEP-24"
+  ],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "nep24_royalty_nft",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "symbol",
+            "type": "ByteArray"
+          },
+          {
+            "name": "base_uri",
+            "type": "ByteArray"
+          },
+          {
+            "name": "default_royalty_percentage",
+            "type": "Integer"
+          }
+        ],
+        "name": "deploy",
+        "offset": 486,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [],
+        "name": "symbol",
+        "offset": 725,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "decimals",
+        "offset": 768,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "total_supply",
+        "offset": 788,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          }
+        ],
+        "name": "balance_of",
+        "offset": 833,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "owner_of",
+        "offset": 883,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "to",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          },
+          {
+            "name": "data",
+            "type": "Any"
+          }
+        ],
+        "name": "transfer",
+        "offset": 931,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          },
+          {
+            "name": "_royalty_token",
+            "type": "Hash160"
+          },
+          {
+            "name": "sale_price",
+            "type": "Integer"
+          }
+        ],
+        "name": "royalty_info",
+        "offset": 1144,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "to",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          },
+          {
+            "name": "metadata",
+            "type": "Any"
+          },
+          {
+            "name": "royalty_recipients",
+            "type": "Hash160"
+          },
+          {
+            "name": "royalty_percentages",
+            "type": "Array"
+          }
+        ],
+        "name": "mint_with_royalty",
+        "offset": 1277,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "creator",
+            "type": "Hash160"
+          },
+          {
+            "name": "percentage",
+            "type": "Integer"
+          }
+        ],
+        "name": "set_creator_royalty",
+        "offset": 2039,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "marketplace",
+            "type": "Hash160"
+          }
+        ],
+        "name": "add_marketplace",
+        "offset": 2226,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          },
+          {
+            "name": "seller",
+            "type": "Hash160"
+          },
+          {
+            "name": "buyer",
+            "type": "Hash160"
+          },
+          {
+            "name": "sale_price",
+            "type": "Integer"
+          },
+          {
+            "name": "payment_token",
+            "type": "Hash160"
+          }
+        ],
+        "name": "marketplace_sale",
+        "offset": 2345,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_token_royalty_info",
+        "offset": 2604,
+        "returntype": "Array",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_max_royalty",
+        "offset": 2652,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "marketplace",
+            "type": "Hash160"
+          }
+        ],
+        "name": "is_approved_marketplace",
+        "offset": 2683,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 2719,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_paused",
+        "offset": 2764,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "token_id",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "properties",
+        "offset": 2795,
+        "returntype": "ByteArray",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Royalty information structure\n#[derive(Clone, Default)]",
+    "Version": "1.0.0",
+    "category": "NFT",
+    "description": "NFT contract with creator royalty support"
+  }
+}

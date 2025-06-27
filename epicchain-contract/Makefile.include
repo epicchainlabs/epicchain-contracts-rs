@@ -1,0 +1,12 @@
+# Common Makefile configuration for EpicChain contracts
+
+# Path to the epicchain-wasm tool
+EPICCHAIN_WASM_PATH := $(REPO_ROOT)/target/release
+EPICCHAIN_WASM := $(EPICCHAIN_WASM_PATH)/epicchain-wasm
+
+# Ensure the epicchain-wasm tool is built
+$(EPICCHAIN_WASM):
+	cd $(REPO_ROOT) && cargo build --release -p epicchain-wasm
+
+# Default flags for rust compilation
+RUSTFLAGS := -Ctarget-feature=+multivalue -Cllvm-args=--combiner-store-merging=false -Clink-arg=--initial-memory=262144 -Clink-arg=-zstack-size=131072

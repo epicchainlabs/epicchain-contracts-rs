@@ -1,0 +1,206 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "staking",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "min_stake_amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 193,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "stake_token",
+            "type": "Hash160"
+          },
+          {
+            "name": "reward_token",
+            "type": "Hash160"
+          },
+          {
+            "name": "reward_rate",
+            "type": "Integer"
+          },
+          {
+            "name": "lock_period",
+            "type": "Integer"
+          },
+          {
+            "name": "penalty_rate",
+            "type": "Integer"
+          }
+        ],
+        "name": "create_pool",
+        "offset": 325,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          },
+          {
+            "name": "user",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "stake",
+        "offset": 555,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          },
+          {
+            "name": "user",
+            "type": "Hash160"
+          }
+        ],
+        "name": "claim_rewards",
+        "offset": 589,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          },
+          {
+            "name": "user",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "unstake",
+        "offset": 739,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          },
+          {
+            "name": "user",
+            "type": "Hash160"
+          }
+        ],
+        "name": "get_user_stake",
+        "offset": 773,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_pool",
+        "offset": 993,
+        "returntype": "Any",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_pool_count",
+        "offset": 1065,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "add_rewards",
+        "offset": 1110,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "enable_emergency",
+        "offset": 1201,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_emergency_enabled",
+        "offset": 1309,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_paused",
+        "offset": 1340,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 1371,
+        "returntype": "Hash160",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Staking pool information\n#[derive(Clone)]",
+    "Version": "1.0.0",
+    "category": "DeFi",
+    "description": "Multi-pool token staking with yield farming"
+  }
+}

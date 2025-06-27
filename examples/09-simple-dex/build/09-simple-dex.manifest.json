@@ -1,0 +1,220 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "09-simple-dex",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "min_liquidity",
+            "type": "Integer"
+          },
+          {
+            "name": "protocol_fee_rate",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 225,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "creator",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_a",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_b",
+            "type": "Hash160"
+          },
+          {
+            "name": "initial_a",
+            "type": "Integer"
+          },
+          {
+            "name": "initial_b",
+            "type": "Integer"
+          },
+          {
+            "name": "fee_rate",
+            "type": "Integer"
+          }
+        ],
+        "name": "create_pool",
+        "offset": 312,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "trader",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_in",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_out",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount_in",
+            "type": "Integer"
+          },
+          {
+            "name": "min_amount_out",
+            "type": "Integer"
+          }
+        ],
+        "name": "swap",
+        "offset": 430,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "_provider",
+            "type": "Hash160"
+          },
+          {
+            "name": "_token_a",
+            "type": "Hash160"
+          },
+          {
+            "name": "_token_b",
+            "type": "Hash160"
+          },
+          {
+            "name": "_amount_a",
+            "type": "Integer"
+          },
+          {
+            "name": "_amount_b",
+            "type": "Integer"
+          },
+          {
+            "name": "_min_liquidity",
+            "type": "Integer"
+          }
+        ],
+        "name": "add_liquidity",
+        "offset": 535,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "_provider",
+            "type": "Hash160"
+          },
+          {
+            "name": "_pool_id",
+            "type": "Integer"
+          },
+          {
+            "name": "_liquidity_amount",
+            "type": "Integer"
+          },
+          {
+            "name": "_min_amount_a",
+            "type": "Integer"
+          },
+          {
+            "name": "_min_amount_b",
+            "type": "Integer"
+          }
+        ],
+        "name": "remove_liquidity",
+        "offset": 574,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "pool_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_pool",
+        "offset": 607,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "token_in",
+            "type": "Hash160"
+          },
+          {
+            "name": "token_out",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount_in",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_swap_quote",
+        "offset": 839,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_paused",
+        "offset": 1178,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 1211,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_pool_count",
+        "offset": 1258,
+        "returntype": "Integer",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Liquidity pool information\n#[derive(Clone)]",
+    "Version": "1.0.0",
+    "category": "DeFi",
+    "description": "Simple AMM-based decentralized exchange"
+  }
+}

@@ -1,0 +1,32 @@
+# Copyright @ 2024 - present, R3E Network
+# All Rights Reserved
+
+[workspace]
+resolver = "2"
+
+members = [
+    "epicchain-contract",
+    "epicchain-contract-proc-macros",
+    "epicchain-wasm/examples/hello-world",
+    "epicchain-wasm/examples/syscall-test",
+    # New comprehensive examples
+    "examples/01-hello-world",
+    "examples/02-simple-token",
+    "examples/02-simple-storage",
+    "examples/03-counter",
+    "examples/04-nep17-token",
+    "examples/05-nep11-nft",
+    "examples/06-nep24-royalty-nft",
+    "examples/07-crowdfunding",
+    "examples/08-staking",
+    "examples/09-simple-dex",
+    "examples/10-multisig-wallet",
+    "examples/11-governance",
+    "examples/12-oracle-price-feed",
+    "examples/13-nft-marketplace",
+]
+
+[profile.release]
+lto           = "fat"
+opt-level     = 3
+codegen-units = 1

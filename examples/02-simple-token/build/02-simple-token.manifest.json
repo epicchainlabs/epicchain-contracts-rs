@@ -1,0 +1,228 @@
+{
+  "groups": [],
+  "supportedstandards": [
+    "NEP-17"
+  ],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "02-simple-token",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "symbol",
+            "type": "ByteArray"
+          },
+          {
+            "name": "decimals",
+            "type": "Integer"
+          },
+          {
+            "name": "initial_supply",
+            "type": "Integer"
+          },
+          {
+            "name": "max_supply",
+            "type": "Integer"
+          },
+          {
+            "name": "mintable",
+            "type": "Boolean"
+          }
+        ],
+        "name": "deploy",
+        "offset": 36,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [],
+        "name": "symbol",
+        "offset": 339,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "decimals",
+        "offset": 442,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "total_supply",
+        "offset": 531,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "account",
+            "type": "Hash160"
+          }
+        ],
+        "name": "balance_of",
+        "offset": 630,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "from",
+            "type": "Hash160"
+          },
+          {
+            "name": "to",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          },
+          {
+            "name": "data",
+            "type": "Any"
+          }
+        ],
+        "name": "transfer",
+        "offset": 734,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "from",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "burn",
+        "offset": 1079,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "minter",
+            "type": "Hash160"
+          }
+        ],
+        "name": "add_minter",
+        "offset": 1176,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "minter",
+            "type": "Hash160"
+          }
+        ],
+        "name": "remove_minter",
+        "offset": 1342,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "pause",
+        "offset": 1500,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "unpause",
+        "offset": 1659,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 1810,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_paused",
+        "offset": 1909,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_mintable",
+        "offset": 1998,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_max_supply",
+        "offset": 2087,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "address",
+            "type": "Hash160"
+          }
+        ],
+        "name": "is_minter",
+        "offset": 2186,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "to",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "mint",
+        "offset": 29,
+        "returntype": "Boolean",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Simple token contract implementing NEP-17 standard\n#[contract_author(\"EpicChain Rust Framework\", \"devs@epic-chain.org\")]\n#[contract_version(\"1.0.0\")]\n#[contract_standards(\"NEP-17\")]\n#[contract_permission(\"*\", \"*\")]\n#[contract_meta(\"description\", \"A complete simple token implementation\")]\n#[contract_meta(\"category\", \"Token\")]",
+    "Version": "1.0.0",
+    "category": "Token",
+    "description": "A complete simple token implementation"
+  }
+}

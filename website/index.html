@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicChain Rust Framework - Production-Ready Smart Contract Development</title>
+    <meta name="description" content="Enterprise-grade framework for building secure EpicChain smart contracts in Rust. Complete toolchain with WASM-to-NEF compiler and 13 comprehensive examples.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="EpicChain Rust Framework">
+    <meta property="og:description" content="Production-ready framework for building EpicChain smart contracts in Rust">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EpicChain Rust Framework">
+    <meta name="twitter:description" content="Production-ready framework for building EpicChain smart contracts in Rust">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/prism.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                        <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                        <polyline points="22,8.5 12,15.5 2,8.5"></polyline>
+                    </svg>
+                </div>
+                <span class="brand-text">EpicChain Rust</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#features" class="nav-link">
+                    <i data-feather="star"></i>
+                    Features
+                </a>
+                <a href="#examples" class="nav-link">
+                    <i data-feather="code"></i>
+                    Examples
+                </a>
+                <a href="#docs" class="nav-link">
+                    <i data-feather="book-open"></i>
+                    Documentation
+                </a>
+                <a href="#getting-started" class="nav-link">
+                    <i data-feather="play-circle"></i>
+                    Getting Started
+                </a>
+                <a href="https://github.com/your-org/epicchain-contract-rs" class="nav-link nav-link-external" target="_blank">
+                    <i data-feather="github"></i>
+                    GitHub
+                </a>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    Production Ready
+                </div>
+                <h1 class="hero-title">
+                    EpicChain Rust
+                    <span class="gradient-text">Smart Contract</span>
+                    Framework
+                </h1>
+                <p class="hero-description">
+                    Enterprise-grade framework for building secure, efficient, and standards-compliant 
+                    smart contracts for EpicChain blockchain using Rust. Complete toolchain from development to deployment.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-icon"><i data-feather="folder"></i></div>
+                        <div class="stat-number">13</div>
+                        <div class="stat-label">Examples</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon"><i data-feather="check-circle"></i></div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon"><i data-feather="code"></i></div>
+                        <div class="stat-number">8K+</div>
+                        <div class="stat-label">Lines of Code</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#getting-started" class="btn btn-primary">
+                        <i data-feather="play-circle"></i>
+                        Get Started
+                    </a>
+                    <a href="https://github.com/your-org/epicchain-contract-rs" class="btn btn-secondary" target="_blank">
+                        <i data-feather="github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-code">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="code-title">hello_world.rs</div>
+                    </div>
+                    <div class="code-content">
+                        <pre><code class="language-rust">use epicchain_contract::prelude::*;
+
+#[epicchain_contract]
+pub struct HelloWorld;
+
+#[epicchain_contract_impl]
+impl HelloWorld {
+    pub fn deploy(&self) -> bool {
+        rt::log("Hello, EpicChain!");
+        true
+    }
+    
+    #[safe]
+    pub fn say_hello(&self, name: String) -> String {
+        format!("Hello, {}!", name)
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose EpicChain Rust Framework?</h2>
+                <p class="section-description">
+                    Built for developers who demand safety, performance, and comprehensive tooling
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-feather="shield"></i>
+                    </div>
+                    <h3 class="feature-title">Memory Safety & Performance</h3>
+                    <p class="feature-description">
+                        Zero-cost abstractions with Rust's ownership system. Compile-time safety preventing 
+                        common smart contract vulnerabilities.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Compile-time memory safety</li>
+                        <li>Optimal gas usage</li>
+                        <li>Zero-cost abstractions</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-feather="book-open"></i>
+                    </div>
+                    <h3 class="feature-title">Comprehensive Learning Path</h3>
+                    <p class="feature-description">
+                        13 complete examples from basic storage to enterprise DeFi applications. 
+                        Progressive complexity designed for developers at all levels.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Beginner to expert examples</li>
+                        <li>Real-world patterns</li>
+                        <li>Best practices embedded</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-feather="tool"></i>
+                    </div>
+                    <h3 class="feature-title">Complete Development Toolchain</h3>
+                    <p class="feature-description">
+                        Rust-to-WASM compilation with optimized build pipeline. WASM-to-NEF compiler 
+                        for EpicChain deployment with automatic manifest generation.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Optimized build pipeline</li>
+                        <li>Automatic manifest generation</li>
+                        <li>NEP standard detection</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-feather="check-circle"></i>
+                    </div>
+                    <h3 class="feature-title">Standards Compliance</h3>
+                    <p class="feature-description">
+                        Full support for NEP-17 (tokens), NEP-11 (NFTs), and NEP-24 (royalties). 
+                        Automatic standard detection based on method signatures.
+                    </p>
+                    <ul class="feature-list">
+                        <li>NEP-17, NEP-11, NEP-24</li>
+                        <li>Automatic detection</li>
+                        <li>Standards-compliant ABI</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-feather="zap"></i>
+                    </div>
+                    <h3 class="feature-title">Production Ready</h3>
+                    <p class="feature-description">
+                        100% build success rate across all examples. Comprehensive security features 
+                        and gas optimization patterns used in production.
+                    </p>
+                    <ul class="feature-list">
+                        <li>100% success rate</li>
+                        <li>Security-first approach</li>
+                        <li>Gas optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i data-feather="layers"></i>
+                    </div>
+                    <h3 class="feature-title">Modular Architecture</h3>
+                    <p class="feature-description">
+                        Enterprise-scale modular design patterns. Clean separation of concerns 
+                        with reusable components for complex applications.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Enterprise patterns</li>
+                        <li>Modular design</li>
+                        <li>Reusable components</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Framework Architecture</h2>
+                <p class="section-description">
+                    Complete toolchain from Rust development to EpicChain deployment
+                </p>
+            </div>
+            
+            <div class="architecture-diagram">
+                <div class="arch-flow">
+                    <div class="arch-step">
+                        <div class="arch-icon">
+                            <i data-feather="edit-3"></i>
+                        </div>
+                        <h3>Rust Smart Contract</h3>
+                        <p>Write type-safe contracts with our framework</p>
+                    </div>
+                    
+                    <div class="arch-arrow">
+                        <i data-feather="arrow-right"></i>
+                    </div>
+                    
+                    <div class="arch-step">
+                        <div class="arch-icon">
+                            <i data-feather="package"></i>
+                        </div>
+                        <h3>WebAssembly</h3>
+                        <p>Compile to optimized WASM bytecode</p>
+                    </div>
+                    
+                    <div class="arch-arrow">
+                        <i data-feather="arrow-right"></i>
+                    </div>
+                    
+                    <div class="arch-step">
+                        <div class="arch-icon">
+                            <i data-feather="cpu"></i>
+                        </div>
+                        <h3>NEF Binary</h3>
+                        <p>Transform to EpicChain Executable Format</p>
+                    </div>
+                    
+                    <div class="arch-arrow">
+                        <i data-feather="arrow-right"></i>
+                    </div>
+                    
+                    <div class="arch-step">
+                        <div class="arch-icon">
+                            <i data-feather="globe"></i>
+                        </div>
+                        <h3>EpicChain Network</h3>
+                        <p>Deploy to EpicChain blockchain</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="architecture-components">
+                <div class="component">
+                    <div class="component-icon">
+                        <i data-feather="box"></i>
+                    </div>
+                    <h4>epicchain-contract</h4>
+                    <p>Core Rust framework library</p>
+                    <span class="component-status">✅ Production</span>
+                </div>
+                <div class="component">
+                    <div class="component-icon">
+                        <i data-feather="command"></i>
+                    </div>
+                    <h4>epicchain-contract-proc-macros</h4>
+                    <p>Procedural macros & attributes</p>
+                    <span class="component-status">✅ Production</span>
+                </div>
+                <div class="component">
+                    <div class="component-icon">
+                        <i data-feather="cpu"></i>
+                    </div>
+                    <h4>epicchain-wasm</h4>
+                    <p>WASM→NEF compiler (Go)</p>
+                    <span class="component-status">✅ Production</span>
+                </div>
+                <div class="component">
+                    <div class="component-icon">
+                        <i data-feather="folder"></i>
+                    </div>
+                    <h4>Examples Library</h4>
+                    <p>13 comprehensive examples</p>
+                    <span class="component-status">✅ Production</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="examples" id="examples">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Complete Example Library</h2>
+                <p class="section-description">
+                    13 production-ready examples from beginner to enterprise level
+                </p>
+            </div>
+            
+            <div class="examples-filter">
+                <button class="filter-btn active" data-filter="all">All Examples</button>
+                <button class="filter-btn" data-filter="beginner">🟢 Beginner</button>
+                <button class="filter-btn" data-filter="intermediate">🟡 Intermediate</button>
+                <button class="filter-btn" data-filter="advanced">🟠 Advanced</button>
+                <button class="filter-btn" data-filter="expert">🔴 Expert</button>
+            </div>
+            
+            <div class="examples-grid">
+                <div class="example-card" data-category="beginner">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="globe"></i></div>
+                        <div class="example-number">01</div>
+                        <div class="example-difficulty beginner">🟢 Beginner</div>
+                    </div>
+                    <h3 class="example-title">Hello World</h3>
+                    <p class="example-description">
+                        Contract basics with storage, events, and authorization
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="database"></i>Storage</span>
+                        <span class="feature-tag"><i data-feather="bell"></i>Events</span>
+                        <span class="feature-tag"><i data-feather="lock"></i>Authorization</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="beginner">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="save"></i></div>
+                        <div class="example-number">02</div>
+                        <div class="example-difficulty beginner">🟢 Beginner</div>
+                    </div>
+                    <h3 class="example-title">Simple Storage</h3>
+                    <p class="example-description">
+                        Advanced storage with multiple data types and serialization
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="type"></i>Data Types</span>
+                        <span class="feature-tag"><i data-feather="package"></i>Serialization</span>
+                        <span class="feature-tag"><i data-feather="database"></i>Storage</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="intermediate">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="plus-circle"></i></div>
+                        <div class="example-number">03</div>
+                        <div class="example-difficulty intermediate">🟡 Intermediate</div>
+                    </div>
+                    <h3 class="example-title">Counter</h3>
+                    <p class="example-description">
+                        State management with access control and statistics
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="settings"></i>State Management</span>
+                        <span class="feature-tag"><i data-feather="shield"></i>Access Control</span>
+                        <span class="feature-tag"><i data-feather="bar-chart"></i>Statistics</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="intermediate">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="coins"></i></div>
+                        <div class="example-number">04</div>
+                        <div class="example-difficulty intermediate">🟡 Intermediate</div>
+                    </div>
+                    <h3 class="example-title">NEP-17 Token</h3>
+                    <p class="example-description">
+                        Full NEP-17 compliant fungible token implementation
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="award"></i>NEP-17</span>
+                        <span class="feature-tag"><i data-feather="coins"></i>Fungible Token</span>
+                        <span class="feature-tag"><i data-feather="check-square"></i>Standards</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="intermediate">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="image"></i></div>
+                        <div class="example-number">05</div>
+                        <div class="example-difficulty intermediate">🟡 Intermediate</div>
+                    </div>
+                    <h3 class="example-title">NEP-11 NFT</h3>
+                    <p class="example-description">
+                        Complete NEP-11 non-fungible token implementation
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="award"></i>NEP-11</span>
+                        <span class="feature-tag"><i data-feather="image"></i>NFT</span>
+                        <span class="feature-tag"><i data-feather="tag"></i>Metadata</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="advanced">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="percent"></i></div>
+                        <div class="example-number">06</div>
+                        <div class="example-difficulty advanced">🟠 Advanced</div>
+                    </div>
+                    <h3 class="example-title">NEP-24 Royalty NFT</h3>
+                    <p class="example-description">
+                        NFT with NEP-24 royalty distribution system
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="award"></i>NEP-24</span>
+                        <span class="feature-tag"><i data-feather="percent"></i>Royalties</span>
+                        <span class="feature-tag"><i data-feather="share"></i>Distribution</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="advanced">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="target"></i></div>
+                        <div class="example-number">07</div>
+                        <div class="example-difficulty advanced">🟠 Advanced</div>
+                    </div>
+                    <h3 class="example-title">Crowdfunding</h3>
+                    <p class="example-description">
+                        DeFi crowdfunding with goal-based funding and refunds
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="trending-up"></i>DeFi</span>
+                        <span class="feature-tag"><i data-feather="dollar-sign"></i>Funding</span>
+                        <span class="feature-tag"><i data-feather="refresh-cw"></i>Refunds</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="expert">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="layers"></i></div>
+                        <div class="example-number">08</div>
+                        <div class="example-difficulty expert">🔴 Expert</div>
+                    </div>
+                    <h3 class="example-title">Staking</h3>
+                    <p class="example-description">
+                        Multi-pool staking system with yield farming
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="anchor"></i>Staking</span>
+                        <span class="feature-tag"><i data-feather="trending-up"></i>Yield Farming</span>
+                        <span class="feature-tag"><i data-feather="layers"></i>Multi-pool</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="expert">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="shuffle"></i></div>
+                        <div class="example-number">09</div>
+                        <div class="example-difficulty expert">🔴 Expert</div>
+                    </div>
+                    <h3 class="example-title">Simple DEX</h3>
+                    <p class="example-description">
+                        Decentralized exchange with AMM and liquidity pools
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="shuffle"></i>DEX</span>
+                        <span class="feature-tag"><i data-feather="git-merge"></i>AMM</span>
+                        <span class="feature-tag"><i data-feather="droplet"></i>Liquidity</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="expert">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="users"></i></div>
+                        <div class="example-number">10</div>
+                        <div class="example-difficulty expert">🔴 Expert</div>
+                    </div>
+                    <h3 class="example-title">Multisig Wallet</h3>
+                    <p class="example-description">
+                        Enterprise security with M-of-N signatures and governance
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="users"></i>Multisig</span>
+                        <span class="feature-tag"><i data-feather="sliders"></i>Governance</span>
+                        <span class="feature-tag"><i data-feather="shield"></i>Security</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="expert">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="vote"></i></div>
+                        <div class="example-number">11</div>
+                        <div class="example-difficulty expert">🔴 Expert</div>
+                    </div>
+                    <h3 class="example-title">Governance</h3>
+                    <p class="example-description">
+                        DAO governance with token-weighted voting system
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="hexagon"></i>DAO</span>
+                        <span class="feature-tag"><i data-feather="check-square"></i>Voting</span>
+                        <span class="feature-tag"><i data-feather="sliders"></i>Governance</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="expert">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="activity"></i></div>
+                        <div class="example-number">12</div>
+                        <div class="example-difficulty expert">🔴 Expert</div>
+                    </div>
+                    <h3 class="example-title">Oracle Price Feed</h3>
+                    <p class="example-description">
+                        External data integration with oracle systems
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="eye"></i>Oracle</span>
+                        <span class="feature-tag"><i data-feather="activity"></i>Price Feed</span>
+                        <span class="feature-tag"><i data-feather="external-link"></i>External Data</span>
+                    </div>
+                </div>
+                
+                <div class="example-card" data-category="expert">
+                    <div class="example-header">
+                        <div class="example-icon"><i data-feather="shopping-bag"></i></div>
+                        <div class="example-number">13</div>
+                        <div class="example-difficulty expert">🔴 Expert</div>
+                    </div>
+                    <h3 class="example-title">NFT Marketplace</h3>
+                    <p class="example-description">
+                        Enterprise NFT marketplace with modular architecture
+                    </p>
+                    <div class="example-features">
+                        <span class="feature-tag"><i data-feather="shopping-bag"></i>Marketplace</span>
+                        <span class="feature-tag"><i data-feather="grid"></i>Modular</span>
+                        <span class="feature-tag"><i data-feather="briefcase"></i>Enterprise</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="getting-started" id="getting-started">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-description">
+                    Get up and running with your first EpicChain smart contract in minutes
+                </p>
+            </div>
+            
+            <div class="getting-started-content">
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon"><i data-feather="download"></i></div>
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Prerequisites</h3>
+                            <p>Install Rust nightly and Go for the complete toolchain</p>
+                            <div class="code-block">
+                                <pre><code class="language-bash"># Install Rust nightly
+rustup install nightly
+rustup default nightly
+rustup target add wasm32-unknown-unknown
+
+# Install Go 1.23+
+# Visit https://golang.org/dl/</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon"><i data-feather="git-branch"></i></div>
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Clone & Build</h3>
+                            <p>Clone the repository and build the compiler</p>
+                            <div class="code-block">
+                                <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/your-org/epicchain-contract-rs
+cd epicchain-contract-rs
+
+# Build the compiler
+cd epicchain-wasm
+go build -o epicchain-wasm .
+cd ..</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon"><i data-feather="rocket"></i></div>
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Your First Contract</h3>
+                            <p>Try the hello-world example to verify everything works</p>
+                            <div class="code-block">
+                                <pre><code class="language-bash"># Navigate to hello-world example
+cd examples/01-hello-world
+
+# Build everything
+make all
+
+# Files generated:
+# ├── target/wasm32-unknown-unknown/release/hello_world.wasm
+# ├── build/hello_world.nef
+# └── build/hello_world.manifest.json</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-start-demo">
+                    <div class="demo-header">
+                        <h3>Hello World Contract</h3>
+                        <p>A simple contract to get you started</p>
+                    </div>
+                    <div class="demo-code">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <div class="code-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="code-title">src/lib.rs</div>
+                            </div>
+                            <div class="code-content">
+                                <pre><code class="language-rust">use epicchain_contract::prelude::*;
+
+#[epicchain_contract]
+pub struct HelloWorld {
+    owner: H160,
+}
+
+#[epicchain_contract_impl]
+impl HelloWorld {
+    pub fn deploy(&self, owner: H160) -> bool {
+        self.owner.set(owner);
+        rt::log("HelloWorld deployed!");
+        true
+    }
+    
+    #[safe]
+    pub fn get_owner(&self) -> H160 {
+        self.owner.get()
+    }
+    
+    pub fn say_hello(&self, name: String) -> String {
+        format!("Hello, {}!", name)
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="documentation" id="docs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Documentation & Resources</h2>
+                <p class="section-description">
+                    Comprehensive guides, API documentation, and learning resources
+                </p>
+            </div>
+            
+            <div class="docs-grid">
+                <a href="https://github.com/your-org/epicchain-contract-rs/tree/main/examples" class="doc-card" target="_blank">
+                    <div class="doc-icon">
+                        <i data-feather="book-open"></i>
+                    </div>
+                    <h3>Examples Guide</h3>
+                    <p>Comprehensive guide to all 13 examples with detailed explanations</p>
+                    <div class="doc-meta">
+                        <span>13 Examples</span>
+                        <span>→</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/your-org/epicchain-contract-rs/blob/main/examples/MODULAR_ARCHITECTURE_GUIDE.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">
+                        <i data-feather="layers"></i>
+                    </div>
+                    <h3>Architecture Guide</h3>
+                    <p>Enterprise patterns and modular architecture for complex applications</p>
+                    <div class="doc-meta">
+                        <span>Enterprise Patterns</span>
+                        <span>→</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/your-org/epicchain-contract-rs/tree/main/epicchain-wasm" class="doc-card" target="_blank">
+                    <div class="doc-icon">
+                        <i data-feather="settings"></i>
+                    </div>
+                    <h3>Compiler Documentation</h3>
+                    <p>Understanding the WASM-to-NEF compiler and manifest generation</p>
+                    <div class="doc-meta">
+                        <span>Compiler Guide</span>
+                        <span>→</span>
+                    </div>
+                </a>
+                
+                <a href="https://epic-chain.org/docs/getting-started" class="doc-card" target="_blank">
+                    <div class="doc-icon">
+                        <i data-feather="external-link"></i>
+                    </div>
+                    <h3>EpicChain Documentation</h3>
+                    <p>Official EpicChain documentation and blockchain specifications</p>
+                    <div class="doc-meta">
+                        <span>Official Docs</span>
+                        <span>→</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/epicchainlabs/epicchain" class="doc-card" target="_blank">
+                    <div class="doc-icon">
+                        <i data-feather="file-text"></i>
+                    </div>
+                    <h3>NEP Standards</h3>
+                    <p>EpicChain Enhancement Proposals and smart contract standards</p>
+                    <div class="doc-meta">
+                        <span>Standards</span>
+                        <span>→</span>
+                    </div>
+                </a>
+                
+                <a href="https://www.rust-lang.org/learn" class="doc-card" target="_blank">
+                    <div class="doc-icon">
+                        <i data-feather="code"></i>
+                    </div>
+                    <h3>Rust Learning</h3>
+                    <p>Learn Rust programming language fundamentals</p>
+                    <div class="doc-meta">
+                        <span>Rust Guide</span>
+                        <span>→</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Production Status Section -->
+    <section class="production-status">
+        <div class="container">
+            <div class="production-banner">
+                <div class="production-content">
+                    <div class="production-badge">
+                        <span class="badge-icon">✅</span>
+                        Production Ready
+                    </div>
+                    <h2>Ready for Production Use</h2>
+                    <p>
+                        100% build success rate across all examples. Comprehensive security features, 
+                        gas optimization, and standards compliance make this framework ready for production deployment.
+                    </p>
+                    <div class="production-metrics">
+                        <div class="metric">
+                            <div class="metric-icon"><i data-feather="check-circle"></i></div>
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Build Success</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-icon"><i data-feather="award"></i></div>
+                            <div class="metric-value">3</div>
+                            <div class="metric-label">NEP Standards</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-icon"><i data-feather="code"></i></div>
+                            <div class="metric-value">8K+</div>
+                            <div class="metric-label">Lines Tested</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-icon"><i data-feather="folder"></i></div>
+                            <div class="metric-value">13</div>
+                            <div class="metric-label">Examples</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                            <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                            <polyline points="22,8.5 12,15.5 2,8.5"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="brand-text">EpicChain Rust Framework</div>
+                        <p class="brand-tagline">Production-ready smart contracts in Rust</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Framework</h4>
+                        <a href="#features">Features</a>
+                        <a href="#examples">Examples</a>
+                        <a href="#getting-started">Getting Started</a>
+                        <a href="https://github.com/your-org/epicchain-contract-rs" target="_blank">GitHub</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Documentation</h4>
+                        <a href="https://github.com/your-org/epicchain-contract-rs/tree/main/examples" target="_blank">Examples Guide</a>
+                        <a href="https://github.com/your-org/epicchain-contract-rs/blob/main/examples/MODULAR_ARCHITECTURE_GUIDE.md" target="_blank">Architecture</a>
+                        <a href="https://github.com/your-org/epicchain-contract-rs/tree/main/epicchain-wasm" target="_blank">Compiler</a>
+                        <a href="https://epic-chain.org/docs/getting-started/" target="_blank">EpicChain Docs</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Community</h4>
+                        <a href="https://github.com/your-org/epicchain-contract-rs/issues" target="_blank">Issues</a>
+                        <a href="https://github.com/your-org/epicchain-contract-rs/discussions" target="_blank">Discussions</a>
+                        <a href="https://discord.gg/neo" target="_blank">Discord</a>
+                        <a href="https://twitter.com/neo_blockchain" target="_blank">Twitter</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <a href="https://epic-chain.org/" target="_blank">Neo</a>
+                        <a href="https://www.rust-lang.org/" target="_blank">Rust</a>
+                        <a href="https://webassembly.org/" target="_blank">WebAssembly</a>
+                        <a href="https://github.com/epicchainlabs/epicchain" target="_blank">XEP Standards</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 R3E Network. Licensed under Apache 2.0.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/your-org/epicchain-contract-rs" target="_blank" aria-label="GitHub">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="https://twitter.com/neo_blockchain" target="_blank" aria-label="Twitter">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="https://discord.gg/neo" target="_blank" aria-label="Discord">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.010c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Enhanced Prism.js initialization for better Rust highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force re-highlight all code blocks
+            Prism.highlightAll();
+            
+            // Add custom Rust token patterns
+            if (Prism.languages.rust) {
+                // Enhance Rust syntax highlighting
+                Prism.languages.rust = Prism.languages.extend('rust', {
+                    'attribute': {
+                        pattern: /#!?\[(?:[^\[\]"]|"(?:\\[\s\S]|[^\\"])*")*\]/,
+                        greedy: true,
+                        alias: 'attr-name',
+                        inside: {
+                            'string': {
+                                pattern: /"(?:\\[\s\S]|[^\\"])*"/,
+                                greedy: true
+                            }
+                        }
+                    },
+                    'macro': {
+                        pattern: /\b\w+!/,
+                        alias: 'property'
+                    },
+                    'lifetime': {
+                        pattern: /'[a-zA-Z_][a-zA-Z0-9_]*(?=\s*[,\s]|$)/,
+                        alias: 'symbol'
+                    },
+                    'keyword': /\b(?:abstract|alignof|as|async|await|become|box|break|const|continue|crate|do|dyn|else|enum|extern|false|final|fn|for|if|impl|in|let|loop|macro|match|mod|move|mut|offsetof|override|priv|proc|pub|pure|ref|return|Self|self|sizeof|static|struct|super|trait|true|type|typeof|union|unsafe|unsized|use|virtual|where|while|yield)\b/,
+                    'function': /\b[a-z_][a-z0-9_]*(?=\s*[(<])/i,
+                    'string': {
+                        pattern: /(?:r#*"(?:[^"]|\\[\s\S])*"#*|b?r#*"(?:[^"]|\\[\s\S])*"#*|b?"(?:\\[\s\S]|[^\\"])*")/,
+                        greedy: true
+                    },
+                    'number': /\b(?:0x[a-fA-F0-9_]+|0o[0-7_]+|0b[01_]+|\d[\d_]*(?:\.[\d_]*)?(?:[eE][+-]?[\d_]+)?(?:f32|f64|i8|i16|i32|i64|i128|isize|u8|u16|u32|u64|u128|usize)?)\b/,
+                    'boolean': /\b(?:true|false)\b/,
+                    'punctuation': /[{}[\];(),.:]/,
+                    'operator': /[-+*\/%=!<>&|^]+/
+                });
+            }
+            
+            // Re-highlight after enhancing
+            setTimeout(() => {
+                Prism.highlightAll();
+            }, 100);
+        });
+    </script>
+</body>
+</html> 

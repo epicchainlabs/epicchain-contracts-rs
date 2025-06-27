@@ -1,0 +1,187 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "10-multisig-wallet",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "initial_owners",
+            "type": "Hash160"
+          },
+          {
+            "name": "required_confirmations",
+            "type": "Integer"
+          },
+          {
+            "name": "proposal_lifetime",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 369,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposer",
+            "type": "Hash160"
+          },
+          {
+            "name": "target",
+            "type": "Hash160"
+          },
+          {
+            "name": "token",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          },
+          {
+            "name": "data",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "propose_transaction",
+        "offset": 818,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          },
+          {
+            "name": "confirmer",
+            "type": "Hash160"
+          }
+        ],
+        "name": "confirm_transaction",
+        "offset": 1199,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          },
+          {
+            "name": "revoker",
+            "type": "Hash160"
+          }
+        ],
+        "name": "revoke_confirmation",
+        "offset": 1817,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          },
+          {
+            "name": "canceller",
+            "type": "Hash160"
+          }
+        ],
+        "name": "cancel_proposal",
+        "offset": 2250,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "new_owner",
+            "type": "Hash160"
+          }
+        ],
+        "name": "add_owner",
+        "offset": 2581,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_proposal",
+        "offset": 2708,
+        "returntype": "Any",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "address",
+            "type": "Hash160"
+          }
+        ],
+        "name": "is_owner",
+        "offset": 2738,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owners",
+        "offset": 2776,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_required_confirmations",
+        "offset": 2810,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owner_count",
+        "offset": 2864,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_proposal_count",
+        "offset": 2918,
+        "returntype": "Integer",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Transaction proposal status\n#[derive(Clone, Copy, PartialEq)]\npub enum ProposalStatus {\n    Pending = 0,\n    Executed = 1,\n    Cancelled = 2,\n    Expired = 3,\n}\n\nimpl ProposalStatus {\n    fn from_u8(value: u8) -\u003e Self {\n        match value {\n            1 =\u003e ProposalStatus::Executed,\n            2 =\u003e ProposalStatus::Cancelled,\n            3 =\u003e ProposalStatus::Expired,\n            _ =\u003e ProposalStatus::Pending,\n        }\n    }\n\n    fn to_u8(self) -\u003e u8 {\n        self as u8\n    }\n}\n\n/// Transaction proposal information\n#[derive(Clone)]",
+    "Version": "1.0.0",
+    "category": "Security",
+    "description": "Multi-signature wallet with proposal-based governance"
+  }
+}

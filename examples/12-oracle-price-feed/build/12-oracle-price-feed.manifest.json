@@ -1,0 +1,178 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "12-oracle-price-feed",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "min_sources",
+            "type": "Integer"
+          },
+          {
+            "name": "max_price_age",
+            "type": "Integer"
+          },
+          {
+            "name": "subscription_fee",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 249,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "symbol",
+            "type": "ByteArray"
+          },
+          {
+            "name": "source_url",
+            "type": "ByteArray"
+          },
+          {
+            "name": "filter",
+            "type": "ByteArray"
+          },
+          {
+            "name": "epicpulse_for_response",
+            "type": "Integer"
+          }
+        ],
+        "name": "request_price_data",
+        "offset": 462,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "url",
+            "type": "ByteArray"
+          },
+          {
+            "name": "user_data",
+            "type": "ByteArray"
+          },
+          {
+            "name": "code",
+            "type": "Integer"
+          },
+          {
+            "name": "result",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "oracle_callback",
+        "offset": 869,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "symbol",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_price",
+        "offset": 995,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "subscriber",
+            "type": "Hash160"
+          },
+          {
+            "name": "duration",
+            "type": "Integer"
+          }
+        ],
+        "name": "subscribe",
+        "offset": 1315,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "symbol",
+            "type": "ByteArray"
+          },
+          {
+            "name": "price",
+            "type": "Integer"
+          }
+        ],
+        "name": "set_emergency_price",
+        "offset": 1453,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "activate_circuit_breaker",
+        "offset": 1546,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "deactivate_circuit_breaker",
+        "offset": 1657,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_circuit_breaker_active",
+        "offset": 1760,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 1793,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_request_count",
+        "offset": 1840,
+        "returntype": "Integer",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Price data structure\n#[derive(Clone)]",
+    "Version": "1.0.0",
+    "category": "Oracle",
+    "description": "Oracle-based price feed with multi-source aggregation"
+  }
+}

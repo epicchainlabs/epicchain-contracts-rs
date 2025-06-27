@@ -1,0 +1,91 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "01-hello-world",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [],
+        "name": "get_greeting",
+        "offset": 46,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "new_greeting",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "set_greeting",
+        "offset": 96,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_visitor_count",
+        "offset": 205,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "visitor_name",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "say_hello",
+        "offset": 250,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "visitor_number",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_visitor",
+        "offset": 457,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_info",
+        "offset": 497,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "reset",
+        "offset": 659,
+        "returntype": "Boolean",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Hello World smart contract demonstrating basic EpicChain features\n#[contract_author(\"EpicChain Rust Framework\", \"devs@epic-chain.org\")]\n#[contract_version(\"1.0.0\")]\n#[contract_standards(\"\")]\n#[contract_permission(\"*\", \"*\")]\n#[contract_meta(\"description\", \"A simple Hello World contract demonstrating basic EpicChain features\")]\n#[contract_meta(\"website\", \"https://github.com/R3E-Network/epicchain-contract-rs\")]",
+    "Version": "1.0.0",
+    "description": "A simple Hello World contract demonstrating basic EpicChain features",
+    "website": "https://github.com/R3E-Network/epicchain-contract-rs"
+  }
+}

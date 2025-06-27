@@ -1,0 +1,16 @@
+# Copyright @ 2023 - 2024, R3E Network
+# All Rights Reserved
+
+[package]
+name = "epicchain-contract"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+epicchain-contract-proc-macros = { path = "../epicchain-contract-proc-macros" }
+
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+num256     = { version = "0.6" }
+num-traits = { version = "0.2" }
+hex        = { version = "0.4" }
+lazy_static = { version = "1.4" }

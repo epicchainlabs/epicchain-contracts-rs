@@ -1,0 +1,174 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "11-governance",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "admin",
+            "type": "Hash160"
+          },
+          {
+            "name": "guardian",
+            "type": "Hash160"
+          },
+          {
+            "name": "governance_token",
+            "type": "Hash160"
+          },
+          {
+            "name": "voting_delay",
+            "type": "Integer"
+          },
+          {
+            "name": "voting_period",
+            "type": "Integer"
+          },
+          {
+            "name": "execution_delay",
+            "type": "Integer"
+          },
+          {
+            "name": "proposal_threshold",
+            "type": "Integer"
+          },
+          {
+            "name": "quorum_percentage",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 369,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposer",
+            "type": "Hash160"
+          },
+          {
+            "name": "title",
+            "type": "ByteArray"
+          },
+          {
+            "name": "description",
+            "type": "ByteArray"
+          },
+          {
+            "name": "target_contract",
+            "type": "Hash160"
+          },
+          {
+            "name": "call_data",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "propose",
+        "offset": 744,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "voter",
+            "type": "Hash160"
+          },
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          },
+          {
+            "name": "choice",
+            "type": "Integer"
+          },
+          {
+            "name": "reason",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "vote",
+        "offset": 1118,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "queue_proposal",
+        "offset": 1370,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "execute_proposal",
+        "offset": 1523,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_proposal",
+        "offset": 1789,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "_account",
+            "type": "Hash160"
+          }
+        ],
+        "name": "get_voting_power",
+        "offset": 2154,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_proposal_count",
+        "offset": 2180,
+        "returntype": "Integer",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Proposal status enumeration\n#[derive(Clone, Copy, PartialEq)]\npub enum ProposalStatus {\n    Pending = 0,\n    Active = 1,\n    Succeeded = 2,\n    Defeated = 3,\n    Queued = 4,\n    Executed = 5,\n    Cancelled = 6,\n    Expired = 7,\n}\n\nimpl ProposalStatus {\n    fn from_u8(value: u8) -\u003e Self {\n        match value {\n            1 =\u003e ProposalStatus::Active,\n            2 =\u003e ProposalStatus::Succeeded,\n            3 =\u003e ProposalStatus::Defeated,\n            4 =\u003e ProposalStatus::Queued,\n            5 =\u003e ProposalStatus::Executed,\n            6 =\u003e ProposalStatus::Cancelled,\n            7 =\u003e ProposalStatus::Expired,\n            _ =\u003e ProposalStatus::Pending,\n        }\n    }\n\n    fn to_u8(self) -\u003e u8 {\n        self as u8\n    }\n}\n\n/// Vote choice enumeration\n#[derive(Clone, Copy, PartialEq)]\npub enum VoteChoice {\n    Against = 0,\n    For = 1,\n    Abstain = 2,\n}\n\nimpl VoteChoice {\n    fn from_u8(value: u8) -\u003e Self {\n        match value {\n            1 =\u003e VoteChoice::For,\n            2 =\u003e VoteChoice::Abstain,\n            _ =\u003e VoteChoice::Against,\n        }\n    }\n\n    fn to_u8(self) -\u003e u8 {\n        self as u8\n    }\n}\n\n/// Governance proposal\n#[derive(Clone)]",
+    "Version": "1.0.0",
+    "category": "Governance",
+    "description": "Decentralized governance with token-weighted voting"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "groups": [],
+  "supportedstandards": [
+    "NEP-11",
+    "NEP-24"
+  ],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "13-nft-marketplace",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "platform_fee_rate",
+            "type": "Integer"
+          },
+          {
+            "name": "min_listing_duration",
+            "type": "Integer"
+          },
+          {
+            "name": "max_listing_duration",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 406,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 665,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_platform_fee_rate",
+        "offset": 712,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_paused",
+        "offset": 745,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "pause",
+        "offset": 778,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "unpause",
+        "offset": 889,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_marketplace_stats",
+        "offset": 992,
+        "returntype": "ByteArray",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "NFT Marketplace contract\n#[contract_author(\"EpicChain Rust Framework\", \"devs@epic-chain.org\")]\n#[contract_version(\"1.0.0\")]\n#[contract_standards(\"NEP-11,NEP-24\")]\n#[contract_permission(\"*\", \"*\")]\n#[contract_meta(\"description\", \"Comprehensive NFT marketplace with auctions and royalties\")]\n#[contract_meta(\"category\", \"Marketplace\")]",
+    "Version": "1.0.0",
+    "category": "Marketplace",
+    "description": "Comprehensive NFT marketplace with auctions and royalties"
+  }
+}

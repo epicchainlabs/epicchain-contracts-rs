@@ -1,0 +1,216 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "02-simple-storage",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          }
+        ],
+        "name": "set_owner",
+        "offset": 78,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [],
+        "name": "get_owner",
+        "offset": 221,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          },
+          {
+            "name": "value",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "put_string",
+        "offset": 311,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_string",
+        "offset": 453,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          },
+          {
+            "name": "value",
+            "type": "Integer"
+          }
+        ],
+        "name": "put_number",
+        "offset": 546,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_number",
+        "offset": 690,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          },
+          {
+            "name": "value",
+            "type": "Hash160"
+          }
+        ],
+        "name": "put_address",
+        "offset": 783,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_address",
+        "offset": 927,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          },
+          {
+            "name": "values",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "put_array",
+        "offset": 1020,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_array",
+        "offset": 1224,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          },
+          {
+            "name": "_map_data",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "put_map",
+        "offset": 1308,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "key",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "get_map",
+        "offset": 1460,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "data_type",
+            "type": "ByteArray"
+          },
+          {
+            "name": "key",
+            "type": "ByteArray"
+          }
+        ],
+        "name": "delete",
+        "offset": 1544,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_total_items",
+        "offset": 1813,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_stats",
+        "offset": 1903,
+        "returntype": "ByteArray",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Simple Storage contract demonstrating advanced storage patterns\n#[contract_author(\"EpicChain Rust Framework\", \"devs@epic-chain.org\")]\n#[contract_version(\"1.0.0\")]\n#[contract_standards(\"\")]\n#[contract_permission(\"*\", \"*\")]\n#[contract_meta(\"description\", \"Advanced storage patterns and data management\")]\n#[contract_meta(\"category\", \"Storage\")]",
+    "Version": "1.0.0",
+    "category": "Storage",
+    "description": "Advanced storage patterns and data management"
+  }
+}

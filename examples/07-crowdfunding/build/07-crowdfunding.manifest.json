@@ -1,0 +1,198 @@
+{
+  "groups": [],
+  "supportedstandards": [],
+  "permissions": [
+    {
+      "methods": [
+        "*"
+      ],
+      "contract": "*"
+    }
+  ],
+  "trusts": [],
+  "name": "07-crowdfunding",
+  "features": {},
+  "abi": {
+    "methods": [
+      {
+        "parameters": [
+          {
+            "name": "owner",
+            "type": "Hash160"
+          },
+          {
+            "name": "platform_fee_bp",
+            "type": "Integer"
+          }
+        ],
+        "name": "initialize",
+        "offset": 305,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "creator",
+            "type": "Hash160"
+          },
+          {
+            "name": "title",
+            "type": "ByteArray"
+          },
+          {
+            "name": "description",
+            "type": "ByteArray"
+          },
+          {
+            "name": "funding_goal",
+            "type": "Integer"
+          },
+          {
+            "name": "deadline",
+            "type": "Integer"
+          },
+          {
+            "name": "payment_token",
+            "type": "Hash160"
+          }
+        ],
+        "name": "create_campaign",
+        "offset": 471,
+        "returntype": "Integer",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "type": "Integer"
+          },
+          {
+            "name": "contributor",
+            "type": "Hash160"
+          },
+          {
+            "name": "amount",
+            "type": "Integer"
+          }
+        ],
+        "name": "contribute",
+        "offset": 583,
+        "returntype": "Boolean",
+        "safe": false
+      },
+      {
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_campaign",
+        "offset": 619,
+        "returntype": "ByteArray",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "type": "Integer"
+          },
+          {
+            "name": "contributor",
+            "type": "Hash160"
+          }
+        ],
+        "name": "get_contribution",
+        "offset": 887,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "get_total_raised",
+        "offset": 957,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_campaign_count",
+        "offset": 1009,
+        "returntype": "Integer",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "get_platform_owner",
+        "offset": 1056,
+        "returntype": "Hash160",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "is_emergency_paused",
+        "offset": 1103,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "type": "Integer"
+          },
+          {
+            "name": "contributor",
+            "type": "Hash160"
+          }
+        ],
+        "name": "request_refund",
+        "offset": 1136,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [
+          {
+            "name": "campaign_id",
+            "type": "Integer"
+          }
+        ],
+        "name": "cancel_campaign",
+        "offset": 1332,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "emergency_pause",
+        "offset": 1693,
+        "returntype": "Boolean",
+        "safe": true
+      },
+      {
+        "parameters": [],
+        "name": "resume_platform",
+        "offset": 1803,
+        "returntype": "Boolean",
+        "safe": true
+      }
+    ],
+    "events": []
+  },
+  "extra": {
+    "Author": "xmoohad",
+    "Description": "Campaign status enumeration\n#[derive(Clone, Copy, PartialEq)]\npub enum CampaignStatus {\n    Active = 0,\n    Successful = 1,\n    Failed = 2,\n    Cancelled = 3,\n}\n\nimpl CampaignStatus {\n    fn from_u8(value: u8) -\u003e Self {\n        match value {\n            1 =\u003e CampaignStatus::Successful,\n            2 =\u003e CampaignStatus::Failed,\n            3 =\u003e CampaignStatus::Cancelled,\n            _ =\u003e CampaignStatus::Active,\n        }\n    }\n\n    fn to_u8(self) -\u003e u8 {\n        self as u8\n    }\n}\n\n/// Crowdfunding platform contract\n#[contract_author(\"EpicChain Rust Framework\", \"devs@epic-chain.org\")]\n#[contract_version(\"1.0.0\")]\n#[contract_standards(\"\")]\n#[contract_permission(\"*\", \"*\")]\n#[contract_meta(\"description\", \"Decentralized crowdfunding platform with milestone-based releases\")]\n#[contract_meta(\"category\", \"DeFi\")]",
+    "Version": "1.0.0",
+    "category": "DeFi",
+    "description": "Decentralized crowdfunding platform with milestone-based releases"
+  }
+}
